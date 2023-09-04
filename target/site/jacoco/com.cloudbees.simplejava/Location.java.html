@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Location.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">simplejava</a> &gt; <a href="index.source.html" class="el_package">com.cloudbees.simplejava</a> &gt; <span class="el_source">Location.java</span></div><h1>Location.java</h1><pre class="source lang-java linenums">/**
+ * This is a simple class for testing stages of CI/CD.
+ * @author Rich Sharples.
+ */
+
+package com.cloudbees.simplejava;
+
+/**
+ * Location class.
+ */
+
+public class Location {
+
+    private String name;
+    private double longitude;
+    private double latitude;
+    private double elevation;
+
+    /**
+     * @param name name
+     * @return
+     */
+<span class="fc" id="L23">    public Location(String name, double longitude, double latitude, double elevation) {</span>
+<span class="fc" id="L24">        this.name = name;</span>
+<span class="fc" id="L25">        this.longitude = longitude;</span>
+<span class="fc" id="L26">        this.latitude = latitude;</span>
+<span class="fc" id="L27">        this.elevation = elevation;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * @return name
+     */
+    public String getName() {
+<span class="fc" id="L34">        return name;</span>
+    }
+
+    /**
+     * @param loc
+     * @return
+     */
+    public boolean isNorthOf(Location loc) {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        return loc.getLatitude() &lt; this.getLatitude();</span>
+    }
+
+    /**
+     * @param loc
+     * @return
+     */
+    public boolean isSouthOf(Location loc) {
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        return loc.getLatitude() &gt; this.getLatitude();</span>
+    }
+
+    /**
+     * @param loc - location
+     * @return
+     */
+    public boolean isEastOf(Location loc) {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        return loc.getLongitude() &lt; this.getLongitude();</span>
+    }
+
+    /**
+     * @param loc - location
+     * @return
+     */
+    public boolean isWestOf(Location loc) {
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        return loc.getLongitude() &gt; this.getLongitude();</span>
+    }
+
+    /**
+     * @return true if in Northern Hemisphere
+     */
+    public boolean isNorthernHemisphere() {
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        return this.getLatitude() &gt; 0;</span>
+    }
+
+    /**
+     * @param elev - elevation
+     * @return true if higher
+     */
+    public boolean isHigher(double elev) {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        return this.elevation &gt; elev;</span>
+    }
+
+    /**
+     * @param loc - location
+     * @return
+     */
+    public boolean isHigher(Location loc) {
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        return this.getElevation() &gt; loc.getElevation();</span>
+    }
+
+    /**
+     * @param name - new name
+     * @return
+     */
+    public void setName(String name) {
+<span class="fc" id="L97">        this.name = name;</span>
+<span class="fc" id="L98">    }</span>
+
+    /**
+     * @return
+     */
+    public double getLongitude() {
+<span class="fc" id="L104">        return longitude;</span>
+    }
+
+    /**
+     * @return
+     */
+    public void setLongitude(double longitude) {
+<span class="fc" id="L111">        this.longitude = longitude;</span>
+<span class="fc" id="L112">    }</span>
+
+    /**
+     * @return latitude
+     */
+    public double getLatitude() {
+<span class="fc" id="L118">        return latitude;</span>
+    }
+
+    /**
+     */
+    public void setLatitude(double latitude) {
+<span class="fc" id="L124">        this.latitude = latitude;</span>
+<span class="fc" id="L125">    }</span>
+
+    /**
+     * @return elevation
+     */
+    public double getElevation() {
+<span class="fc" id="L131">        return elevation;</span>
+    }
+
+    /**
+     * @param elevation
+     */
+    public void setElevation(double elevation) {
+<span class="fc" id="L138">        this.elevation = elevation;</span>
+<span class="fc" id="L139">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L143">        return String.format(</span>
+            &quot;Location{name='%s', long=%.2f, lat=%.2f, elev=%.2f}&quot;,
+<span class="fc" id="L145">            name, longitude, latitude, elevation);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
