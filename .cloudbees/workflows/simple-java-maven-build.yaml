@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
+        
       - name: Maven Build
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
@@ -21,3 +22,12 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io\
             -Dsonar.organization=${{vars.RICH-SONAR-ORG}}\
             -Dsonar.projectKey=${{vars.RICH-SONAR-PROJECT-KEY}}
+      
+      -name: Checkmarx Scan  
+       uses: cloudbees-io/checkmarx
+       with:
+         serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
+         username: ${{ secrets.CHECKMARX_USERNAME }}
+         password: ${{ secrets.CHECKMARX_PASSWORD }}
+         token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+         language: "LANGUAGE_JAVA"
