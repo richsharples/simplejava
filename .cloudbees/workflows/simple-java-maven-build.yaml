@@ -1,4 +1,4 @@
-EY}}ECT-apiVersion: automation.cloudbees.io/v1alpha1
+apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Simple Java Maven Build 
 
@@ -20,4 +20,4 @@ jobs:
             -Dsonar.token=${{secrets.RICH-SONAR-TOKEN}} \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.organization=${{RICH-SONAR-ORG}} \
-            -Dsonar.projectKey=${{RICH-SONAR-PRO}}
+            -Dsonar.projectKey=${{RICH-SONAR-PROJECT-KEY}}
