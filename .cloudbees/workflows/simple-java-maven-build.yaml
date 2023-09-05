@@ -17,7 +17,7 @@ jobs:
         shell: sh
         run: |
           mvn clean verify sonar:sonar \
-            -Dsonar.token=${{secrets.RICH-SONAR-TOKEN}} \
-            -Dsonar.host.url="https://sonarcloud.io" \
-            -Dsonar.organization=${{RICH-SONAR-ORG}} \
+            -Dsonar.token=${{secrets.RICH-SONAR-TOKEN}}\
+            -Dsonar.host.url=https://sonarcloud.io\
+            -Dsonar.organization=${{RICH-SONAR-ORG}}\
             -Dsonar.projectKey=${{RICH-SONAR-PROJECT-KEY}}
