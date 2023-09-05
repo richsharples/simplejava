@@ -16,4 +16,4 @@ jobs:
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
-          mvn clean verify
+          mvn -X clean verify
