@@ -23,9 +23,9 @@ jobs:
             -Dsonar.organization=${{vars.RICH-SONAR-ORG}}\
             -Dsonar.projectKey=${{vars.RICH-SONAR-PROJECT-KEY}}
       
-      -name: Checkmarx Scan  
-       uses: cloudbees-io/checkmarx
-       with:
+      - name: Checkmarx Scan  
+        uses: cloudbees-io/checkmarx
+        with:
          serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
          username: ${{ secrets.CHECKMARX_USERNAME }}
          password: ${{ secrets.CHECKMARX_PASSWORD }}
