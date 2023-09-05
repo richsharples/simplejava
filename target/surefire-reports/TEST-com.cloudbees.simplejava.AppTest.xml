@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cloudbees.simplejava.AppTest" time="0.038" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cloudbees.simplejava.AppTest" time="0.033" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/rsharples/Documents/GitHub/simplejava/target/surefire/surefirebooter16308195620063214842.jar /Users/rsharples/Documents/GitHub/simplejava/target/surefire 2023-09-04T19-48-17_453-jvmRun1 surefire392717726796299592tmp surefire_016996735410960762492tmp"/>
+    <property name="sun.java.command" value="/Users/rsharples/Documents/GitHub/simplejava/target/surefire/surefirebooter2406325364521926388.jar /Users/rsharples/Documents/GitHub/simplejava/target/surefire 2023-09-05T07-49-32_701-jvmRun1 surefire8582341081015034905tmp surefire_016211551905249802675tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/rsharples/Documents/GitHub/simplejava/target/test-classes:/Users/rsharples/Documents/GitHub/simplejava/target/classes:/Users/rsharples/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/Users/rsharples/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/Users/rsharples/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/rsharples/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/Users/rsharples/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/Users/rsharples/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/rsharples/Documents/GitHub/simplejava/target/surefire/surefirebooter16308195620063214842.jar"/>
+    <property name="surefire.real.class.path" value="/Users/rsharples/Documents/GitHub/simplejava/target/surefire/surefirebooter2406325364521926388.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="20.0.2"/>
@@ -58,9 +58,9 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testLocationElevation" classname="com.cloudbees.simplejava.AppTest" time="0.012"/>
+  <testcase name="testLocationElevation" classname="com.cloudbees.simplejava.AppTest" time="0.008"/>
   <testcase name="testLocationLat" classname="com.cloudbees.simplejava.AppTest" time="0.001"/>
-  <testcase name="testAssertConstruct" classname="com.cloudbees.simplejava.AppTest" time="0.009"/>
+  <testcase name="testAssertConstruct" classname="com.cloudbees.simplejava.AppTest" time="0.008"/>
   <testcase name="testLocationLong" classname="com.cloudbees.simplejava.AppTest" time="0"/>
   <testcase name="testAssertList" classname="com.cloudbees.simplejava.AppTest" time="0"/>
 </testsuite>
