@@ -18,7 +18,7 @@ jobs:
         run: |
           # mvn -X clean verify
           mvn clean verify sonar:sonar \
-            -Dsonar.token=b10e165e583c03f94486320f7628235a799da303 \
+            -Dsonar.token=${{ secrets.RICH-SONAR-TOKEN }} \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.organization=richsharples \
             -Dsonar.projectKey=richsharples_simplejava
