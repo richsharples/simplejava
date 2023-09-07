@@ -8,11 +8,6 @@ on:
 jobs:
   build:
     steps:
-      - name: Checkout
-        uses: cloudbees-io/checkout@v1
-        with:
-          repository: richsharples/simplejava
-
       - name: Maven Build
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
@@ -21,8 +16,7 @@ jobs:
             -Dsonar.token=${{secrets.RICH-SONAR-TOKEN}}\
             -Dsonar.host.url=https://sonarcloud.io\
             -Dsonar.organization=${{vars.RICH-SONAR-ORG}}\
-            -Dsonar.projectKey=${{vars.RICH-SONAR-PROJECT-KEY}}
-            
+            -Dsonar.projectKey=${{vars.RICH-SONAR-PROJECT-KEY}}  
       - name: Checkmarx Scan
         uses: cloudbees-io/checkmarx
         with:
