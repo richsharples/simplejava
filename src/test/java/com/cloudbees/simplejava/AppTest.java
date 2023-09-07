@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("checkstyle:MagicNumber")
 class AppTest {
-    
+
     /**
      * Test Data
      */
@@ -25,7 +26,7 @@ class AppTest {
 
     @BeforeAll
     public static void setup() {
-        cities = new ArrayList<Location>();  
+        cities = new ArrayList<Location>();
 
         cities.add(new Location("New York", -74, 40.96, 102));
         cities.add(new Location("Los Angeles", -118.24, 34.05, 58));
@@ -48,10 +49,10 @@ class AppTest {
         Location sanjose = cities.stream().filter(city -> "San Jose".equals(city.getName())).findAny().orElse(null);
         assertNotNull(sanjose);
 
-        assertTrue(dallas.getElevation() > sanjose.getElevation());   
-        assertFalse(sanjose.isHigher(dallas.getElevation()));   
+        assertTrue(dallas.getElevation() > sanjose.getElevation());
+        assertFalse(sanjose.isHigher(dallas.getElevation()));
 
-        assertTrue(dallas.isHigher(sanjose.getElevation()));     
+        assertTrue(dallas.isHigher(sanjose.getElevation()));
 
         assertTrue(dallas.isHigher(sanjose));
         assertFalse(sanjose.isHigher(dallas));
@@ -111,8 +112,8 @@ class AppTest {
     boston.setElevation(46);
     String s = boston.toString();
     assertEquals(s,"Location{name='Boston, MA', long=-71.05, lat=42.36, elev=46.00}");
-    
+
     }
-        
+
 
 }
