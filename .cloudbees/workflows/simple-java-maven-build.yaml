@@ -30,5 +30,10 @@ jobs:
           token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
           language: LANGUAGE_JAVA
 
+      - uses: docker://maven:3-eclipse-temurin-17
+        shell: sh
+        run: | 
+          echo "finished scan"
+
 
 
