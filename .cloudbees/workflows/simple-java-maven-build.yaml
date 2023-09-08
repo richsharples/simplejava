@@ -10,13 +10,11 @@ jobs:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
-      
       - name: Maven Build
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
           mvn clean test 
-      
       - name: Checkmarx Scan
         uses: cloudbees-io/checkmarx
         with:
@@ -25,7 +23,7 @@ jobs:
           password: ${{ secrets.CHECKMARX_PASSWORD }}
           token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
           language: LANGUAGE_JAVA
-
-
-
-
+      - name: FindBugs Scan
+        uses: cloudbees-io/findsecbugs-sast-scan-code
+        with:
+          language: Java
