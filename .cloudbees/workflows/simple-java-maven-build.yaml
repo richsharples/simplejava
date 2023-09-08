@@ -6,7 +6,7 @@ on:
     branches:
       - "**"
 jobs:
-  build:
+  Build / Test:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
@@ -15,6 +15,14 @@ jobs:
         shell: sh
         run: |
           mvn clean test 
+  Security Scans:
+    steps:
+      - name: Checkout
+        uses: cloudbees-io/checkout
+      - name: FindBugs Scan
+        uses: cloudbees-io/findsecbugs-sast-scan-code
+        with:
+          language: Java
       - name: Checkmarx Scan
         uses: cloudbees-io/checkmarx
         with:
@@ -23,7 +31,3 @@ jobs:
           password: ${{ secrets.CHECKMARX_PASSWORD }}
           token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
           language: LANGUAGE_JAVA
-      - name: FindBugs Scan
-        uses: cloudbees-io/findsecbugs-sast-scan-code
-        with:
-          language: Java
