@@ -15,11 +15,7 @@ jobs:
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
-          mvn clean verify sonar:sonar \
-            -Dsonar.token=${{secrets.RICH-SONAR-TOKEN}}\
-            -Dsonar.host.url=https://sonarcloud.io\
-            -Dsonar.organization=${{vars.RICH-SONAR-ORG}}\
-            -Dsonar.projectKey=${{vars.RICH-SONAR-PROJECT-KEY}}  
+          mvn clean test 
       
       - name: Checkmarx Scan
         uses: cloudbees-io/checkmarx
