@@ -6,7 +6,7 @@ on:
     branches:
       - "**"
 jobs:
-  Build / Test:
+  Build and Test:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
