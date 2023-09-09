@@ -15,6 +15,7 @@ jobs:
         shell: sh
         run: |
           mvn clean test 
+          
   security-scans:
     steps:
       - name: Checkout
