@@ -6,7 +6,7 @@ on:
     branches:
       - "**"
 jobs:
-  Build-Test:
+  build-test:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
@@ -15,7 +15,7 @@ jobs:
         shell: sh
         run: |
           mvn clean test 
-  Security-Scans:
+  security-scans:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout
