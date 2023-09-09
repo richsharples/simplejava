@@ -15,7 +15,7 @@ jobs:
         shell: sh
         run: |
           mvn clean test 
-  Security Scans:
+  Security-Scans:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout
