@@ -18,6 +18,17 @@ jobs:
           
   security-scans:
     steps:
-      - name: Checkout
+      - name: Checkout2
         uses: cloudbees-io/checkout
-      
+      - name: FindBugs Scan
+        uses: cloudbees-io/findsecbugs-sast-scan-code
+        with:
+          language: Java
+      - name: Checkmarx-Scan
+        uses: cloudbees-io/checkmarx
+        with:
+          serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
+          username: ${{ secrets.CHECKMARX_USERNAME }}
+          password: ${{ secrets.CHECKMARX_PASSWORD }}
+          token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+          language: LANGUAGE_JAVA
