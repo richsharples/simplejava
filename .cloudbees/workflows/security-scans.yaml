@@ -17,13 +17,6 @@ jobs:
         run: |
           mvn clean test 
 
-      - name: Snyk Scan
-        uses: cloudbees-io/cb-snyk@v1
-        with:
-          orgname: CloudBees
-          token: fdfadf
-          language: Java
-
       - name: FindBugs Scan
         uses: cloudbees-io/findsecbugs-sast-scan-code
         with:
