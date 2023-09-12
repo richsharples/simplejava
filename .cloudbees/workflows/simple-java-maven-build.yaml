@@ -27,8 +27,4 @@ jobs:
           password: ${{ secrets.CHECKMARX_PASSWORD }}
           token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
           language: LANGUAGE_JAVA
-      - uses: cb-snyk
-        with:
-          orgname: saas-sandbox
-          token: ${{ secrets.SNYK_CONTAINER_SECRET }}
-          language: LANGUAGE_JAVA
+
