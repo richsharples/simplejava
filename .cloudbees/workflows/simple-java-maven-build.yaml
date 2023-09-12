@@ -27,4 +27,4 @@ jobs:
           password: ${{ secrets.CHECKMARX_PASSWORD }}
           token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
           language: LANGUAGE_JAVA
- 
+
