@@ -4,7 +4,7 @@ name: Simple Java Maven Build
 on:
   push:
     branches:
-      - "**"
+      - "Disabled"
 jobs:
   build-test:
     steps:
