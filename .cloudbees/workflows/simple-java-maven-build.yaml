@@ -15,7 +15,13 @@ jobs:
         shell: sh
         run: |
           mvn clean test 
-          
+      - uses: cb-snyk
+        with:
+          orgname: CloudBees
+          token: fdfadf
+          language: Java
+
+    
   security-scans:
     steps:
       - name: Checkout2
