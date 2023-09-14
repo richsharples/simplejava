@@ -30,12 +30,8 @@ jobs:
   osv-scan:
     steps:
       - name: install
-        uses: docker://golang
-        run: |+
-          apk add osv-scanner
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
 
-        with:
-          shell:
-            "0": /bin/csh
-          versions:
-            "0": "1.21"
