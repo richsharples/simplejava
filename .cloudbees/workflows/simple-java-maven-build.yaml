@@ -1,4 +1,4 @@
-apiVersion: automation.cloudbees.io/v1alpha1
+scanapiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Simple Java Maven Build
 on:
@@ -27,4 +27,15 @@ jobs:
           password: ${{ secrets.CHECKMARX_PASSWORD }}
           token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
           language: LANGUAGE_JAVA
+  osv-scan:
+    steps:
+      - name: install
+        uses: docker://golang
+        run: |+
+          apk add osv-scanner
 
+        with:
+          shell:
+            "0": /bin/csh
+          versions:
+            "0": "1.21"
