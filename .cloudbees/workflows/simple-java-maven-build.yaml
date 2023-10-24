@@ -8,19 +8,20 @@ on:
 jobs:
   build-test:
     steps:
-      - name: Checkout
-        uses: cloudbees-io/checkout@v1
-      - name: Maven Build
-        uses: docker://maven:3-eclipse-temurin-17
+      - uses: cloudbees-io/checkout@v1
+        name: Checkout
+      - uses: docker://maven:3-eclipse-temurin-17
+        name: Maven Build
         shell: sh
         run: |
           mvn clean test 
-      - name: FindBugs Scan
-        uses: cloudbees-io/findsecbugs-sast-scan-code
+      - uses: cloudbees-io/findsecbugs-sast-scan-code
+        name: FindBugs Scan
         with:
           language: Java
-      - name: Checkmarx-Scan
-        uses: cloudbees-io/checkmarx
+      - uses: cloudbees-io/checkmarx
+        name: Checkmarx-Scan
+        kind: scan
         with:
           serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
           username: ${{ secrets.CHECKMARX_USERNAME }}
@@ -33,4 +34,4 @@ jobs:
         uses: docker://owasp/sonarqube
         shell: sh
         run: |
-           apk add osv-scanner
+          apk add osv-scanner
