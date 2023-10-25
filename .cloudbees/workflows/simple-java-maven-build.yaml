@@ -15,10 +15,10 @@ jobs:
         shell: sh
         run: |
           mvn clean test 
-      - uses: cloudbees-io/findsecbugs-sast-scan-code
-        name: FindBugs Scan
+      - name: Scan with Find Security Bugs
+        uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
-          language: Java
+          language: "LANGUAGE_JAVA"
       - uses: cloudbees-io/checkmarx
         name: Checkmarx-Scan
         with:
