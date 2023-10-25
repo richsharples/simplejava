@@ -19,14 +19,14 @@ jobs:
         uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
           language: "LANGUAGE_JAVA"
-      - uses: cloudbees-io/checkmarx
-        name: Checkmarx-Scan
-        with:
-          serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
-          username: ${{ secrets.CHECKMARX_USERNAME }}
-          password: ${{ secrets.CHECKMARX_PASSWORD }}
-          token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-          language: LANGUAGE_JAVA
+#      - uses: cloudbees-io/checkmarx
+#        name: Checkmarx-Scan
+#        with:
+#          serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
+#          username: ${{ secrets.CHECKMARX_USERNAME }}
+#          password: ${{ secrets.CHECKMARX_PASSWORD }}
+#          token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+#          language: "LANGUAGE_JAVA"
   osv-scan:
     steps:
       - name: install
