@@ -17,7 +17,6 @@ jobs:
           mvn clean test 
       - uses: cloudbees-io/findsecbugs-sast-scan-code
         name: FindBugs Scan
-        kind: scan
         with:
           language: Java
       - uses: cloudbees-io/checkmarx
