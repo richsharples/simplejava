@@ -22,7 +22,6 @@ jobs:
           language: Java
       - uses: cloudbees-io/checkmarx
         name: Checkmarx-Scan
-        kind: scan
         with:
           serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
           username: ${{ secrets.CHECKMARX_USERNAME }}
