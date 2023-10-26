@@ -34,4 +34,4 @@ jobs:
   DeployApp:
     needs:
       - findsecbugs-scan
-      - osv-scan
+      - snyk-scan
