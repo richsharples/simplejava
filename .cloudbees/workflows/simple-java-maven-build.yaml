@@ -10,24 +10,17 @@ jobs:
     steps:
       - uses: cloudbees-io/checkout@v1
         name: Checkout
+        
       - uses: docker://maven:3-eclipse-temurin-17
         name: Maven Build
         shell: sh
         run: |
           mvn clean test 
+
       - name: Scan with Find Security Bugs
         uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
           language: "LANGUAGE_JAVA"
-#      - uses: cloudbees-io/checkmarx
-#        name: Checkmarx-Scan
-#        with:
-#          serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
-#          username: ${{ secrets.CHECKMARX_USERNAME }}
-#          password: ${{ secrets.CHECKMARX_PASSWORD }}
-#          token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-#          language: "LANGUAGE_JAVA"
-
 
       - name: Deploy Using CloudBees CI
         uses: cloudbees-io/cbci-run-job
@@ -40,8 +33,6 @@ jobs:
           parameters: '{"TAG_NAME":"${{ cloudbees.scm.sha }}"}'
 
 
-
-
   osv-scan:
     steps:
       - name: install
@@ -49,3 +40,13 @@ jobs:
         shell: sh
         run: |
           apk add osv-scanner
+
+
+#      - uses: cloudbees-io/checkmarx
+#        name: Checkmarx-Scan
+#        with:
+#          serverURL: ${{ vars.CHECKMARX_SERVER_URL }}
+#          username: ${{ secrets.CHECKMARX_USERNAME }}
+#          password: ${{ secrets.CHECKMARX_PASSWORD }}
+#          token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+#          language: "LANGUAGE_JAVA"
