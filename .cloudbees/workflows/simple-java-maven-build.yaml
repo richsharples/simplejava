@@ -27,6 +27,21 @@ jobs:
 #          password: ${{ secrets.CHECKMARX_PASSWORD }}
 #          token: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
 #          language: "LANGUAGE_JAVA"
+
+
+      - name: Deploy Using CloudBees CI
+        uses: cloudbees-io/cbci-run-job
+        kind: deploy
+        with:
+          url: https://releaseiq.ironman.releaseiq.io/
+          username: ${{ secrets.CBCI_IRONMAN_USERNAME }}
+          password: ${{ secrets.CBCI_IRONMAN_PASSWORD }}
+          job-name: deploy_component1
+          parameters: '{"TAG_NAME":"${{ cloudbees.scm.sha }}"}'
+
+
+
+
   osv-scan:
     steps:
       - name: install
