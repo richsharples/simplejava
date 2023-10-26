@@ -10,49 +10,37 @@ jobs:
     steps:
       - uses: cloudbees-io/checkout@v1
         name: Checkout
-        
       - uses: docker://maven:3-eclipse-temurin-17
         name: Maven Build
         shell: sh
         run: |
           mvn clean test
-
   findsecbugs-scans:
-    needs:
-      checkout-build-test
+    needs: checkout-build-test
     steps:
       - name: Scan with Find Security Bugs
         uses: cloudbees-io/findsecbugs-sast-scan-code@v1
         with:
-          language: "LANGUAGE_JAVA"
-
+          language: LANGUAGE_JAVA
   snyk-scan:
-    needs:
-      checkout-build-test
+    needs: checkout-build-test
     steps:
       - name: Running Snyk SAST Scan
         uses: cloudbees-io/snyk-sast-scan-code@v1
         with:
           orgname: ${{ vars.SNYK_SAAS_ORG_NAME }}
           token: ${{ secrets.SNYK_SAAS_TOKEN }}
-          language: "LANGUAGE_JAVA"
-
+          language: LANGUAGE_JAVA
   CBCI-deploy:
-    needs:
-      - findsecbugs-scans
-      - osv-scan
     steps:
-      - name: Deploy Using CloudBees CI
-        uses: cloudbees-io/cbci-run-job
-        kind: deploy
+      - uses: cloudbees-io/cbci-run-job
+        name: CloudBees CI Deploy
         with:
           url: https://releaseiq.ironman.releaseiq.io/
           username: ${{ secrets.CBCI_IRONMAN_USERNAME }}
           password: ${{ secrets.CBCI_IRONMAN_PASSWORD }}
           job-name: deploy_component1
           parameters: '{"TAG_NAME":"${{ cloudbees.scm.sha }}"}'
-
-
- 
-
-
+    needs:
+      - findsecbugs-scans
+      - osv-scan
