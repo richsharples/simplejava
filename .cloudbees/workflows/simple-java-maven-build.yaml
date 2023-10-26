@@ -32,7 +32,6 @@ jobs:
           job-name: deploy_component1
           parameters: '{"TAG_NAME":"${{ cloudbees.scm.sha }}"}'
 
-
   osv-scan:
     steps:
       - name: install
