@@ -31,7 +31,4 @@ jobs:
           token: ${{ secrets.SNYK_SAAS_TOKEN }}
           language: LANGUAGE_JAVA
     needs: checkout-build-test
-  DeployApp:
-    needs:
-      - findsecbugs-scan
-      - snyk-scan
+
